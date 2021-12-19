@@ -1,12 +1,27 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { onSubmitHandler, onTextHandler } from '../../util/Handler';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { onTextHandler } from '../../util/Handler';
+import { loginUser } from '../../_redux/action';
 import './LoginPage.scss';
 
 function LoginPage() {
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        const body = {
+            username: id,
+            password: password
+        }
+
+        dispatch(loginUser(body, navigate));
+    }
 
     return (
         <div className="loginBox">
@@ -22,13 +37,13 @@ function LoginPage() {
                         onTextHandler(e, setPassword)
                     }} placeholder='비밀번호' />
                 <br />
-                <button className="submitButton" onClick={(e) => { onSubmitHandler(e, id, password) }}>
+                <button className="submitButton" onClick={onSubmitHandler} >
                     로그인
                 </button>
             </div>
             {/* </form> */}
             <div className="utilBox">
-                <Link to="signup">
+                <Link to="signup" className="registerLink">
                     회원가입
                 </Link>
             </div>

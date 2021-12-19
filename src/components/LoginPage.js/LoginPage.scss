@@ -56,8 +56,11 @@
       display: flex;
       justify-content: center;
 
-      &:after {
+      .registerLink {
         color: grey;
+        &:after {
+          color: grey;
+        }
       }
   }
 }
