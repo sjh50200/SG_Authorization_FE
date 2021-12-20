@@ -19,7 +19,7 @@ function LoginPage() {
             password: password
         }
 
-        dispatch(loginUser(body, navigate));
+        dispatch(loginUser(body, navigate, setId, setPassword));
     }
 
     return (
