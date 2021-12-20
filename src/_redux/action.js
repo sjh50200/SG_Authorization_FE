@@ -7,8 +7,9 @@ export const loginUser = (body, navigate) => {
     .then(response => {
         if(response.status === 200) {
             alert("로그인 성공!");
+            console.log(response.data);
             window.localStorage.setItem("userToken", response.data.token);
-            navigate("home");
+            navigate("/");
         } else {
             alert("로그인 실패! 다시 입력하세요.");
         }

@@ -7,7 +7,6 @@ function SignUp() {
     const navigate = useNavigate();
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
-    const [passwordCheck, setPasswordCheck] = useState("");
 
     return (
         <div className="registerBox">

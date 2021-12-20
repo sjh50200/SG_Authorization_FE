@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -43,7 +42,7 @@ function LoginPage() {
             </div>
             {/* </form> */}
             <div className="utilBox">
-                <Link to="signup" className="registerLink">
+                <Link to="/signup" className="registerLink">
                     회원가입
                 </Link>
             </div>
